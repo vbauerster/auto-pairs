@@ -96,6 +96,10 @@ let g:AutoPairsClosedPairs = {}
 
 
 function! AutoPairsInsert(key)
+  if a:key == '}' && pumvisible()
+    return "\<C-p>"
+  endif
+
   if !b:autopairs_enabled
     return a:key
   end
